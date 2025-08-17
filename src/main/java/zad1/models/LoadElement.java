@@ -4,7 +4,7 @@ public abstract class LoadElement {
 
     private double weightInKg;
 
-    public LoadElement(double weightInKg) {
+    protected LoadElement(double weightInKg) {
         this.weightInKg = weightInKg;
     }
 
@@ -12,13 +12,11 @@ public abstract class LoadElement {
         return weightInKg;
     }
 
-    public void setWeightInKg(double weightInKg) {
-        this.weightInKg = weightInKg;
-    }
-
     @Override
     public String toString() {
         return ", weightInKg=" + weightInKg +
                 '}';
     }
+
+    public abstract void checkIfCanBeLoaded(Plane plane) throws RuntimeException;
 }

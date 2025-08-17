@@ -18,11 +18,6 @@ public class Team {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
     public List<Employee> getEmployeesList() {
         return employeesList;
     }
@@ -47,4 +42,26 @@ public class Team {
                 ", employees=" + employeesList +
                 '}';
     }
+
+    public boolean hasJuniorDeveloper(){
+        for (Employee employee : employeesList){
+            if (employee.isJunior())
+                return true;
+        }
+        return false;
+    }
+
+    public boolean hasNSeniorDevelopers(int n){
+        int counter = 0;
+        for (Employee employee : employeesList){
+            if (employee.isSenior()){
+                counter++;
+                if (counter >= n){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
 }

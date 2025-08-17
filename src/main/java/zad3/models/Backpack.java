@@ -1,37 +1,28 @@
 package zad3.models;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class Backpack {
 
     private String brand;
     private double value;
-    private Map<String, Product> backpackContents = new HashMap<>();
+    private Map<String, Product> backpackContents = new LinkedHashMap<>();
 
     public Backpack(String brand) {
         this.brand = brand;
+        this.value = 0;
     }
 
     public String getBrand() {
         return brand;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
     public double getValue() {
-        double total = 0;
-        for (Product product : backpackContents.values()){
-            total += product.getPrice();
-        }
-        return total;
+        return value;
     }
 
     public Map<String, Product> getBackpackContents() {
-        return backpackContents;
+        return Collections.unmodifiableMap(backpackContents);
     }
 
     @Override
@@ -56,17 +47,24 @@ public class Backpack {
                 '}';
     }
 
+//    public boolean containsType(String type){
+//        String normalizedType = type.toLowerCase().trim();
+//       for (String key : backpackContents.keySet()){
+//           if (key.equalsIgnoreCase(normalizedType)){
+//               return true;
+//           }
+//       }
+//       return false;
+//    }
+
     public void addProductToBackpack(Product product){
-        try {
-            for (String key : backpackContents.keySet()) {
-                if (key.equalsIgnoreCase(product.getType())) {
-                    throw new RuntimeException("Produkt tego typu już jest w plecaku");
-                }
-            }
-            backpackContents.put(product.getType(), product);
-            System.out.println("Dodano do plecaka " + product);
-        } catch (RuntimeException e){
-            System.out.println(e.getMessage());
+        String key = product.getType().toLowerCase().trim();
+        if (backpackContents.containsKey(key)){
+            throw new RuntimeException("Produkt tego typu już jest w plecaku");
+        } else {
+            backpackContents.put(key, product);
+            value += product.getPrice();
         }
     }
+
 }

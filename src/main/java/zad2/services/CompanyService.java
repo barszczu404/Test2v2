@@ -16,11 +16,7 @@ public class CompanyService {
         List<Team> teamsWithoutJunior = new ArrayList<>();
         for (Team team : teamList) {
             if (team.getEmployeesList() != null) {
-                for (Employee employee : team.getEmployeesList()) {
-                    if ((employee.getPosition().equals(Position.JUNIOR_DEVELOPER))) {
-                        break;
-                    }
-                    if (!(teamsWithoutJunior.contains(team)))
+                if (!team.hasJuniorDeveloper()){
                     teamsWithoutJunior.add(team);
                 }
             }
@@ -33,11 +29,9 @@ public static List<Team> getTeamWithMinOneJuniorDeveloper(List<Team> teamList) {
     List<Team> teamsWithMin1Junior = new ArrayList<>();
     for (Team team : teamList) {
         if (team.getEmployeesList() != null) {
-            for (Employee employee : team.getEmployeesList()) {
-                if (employee.getPosition().equals(Position.JUNIOR_DEVELOPER)) {
+                if (team.hasJuniorDeveloper()) {
                     teamsWithMin1Junior.add(team);
                 }
-            }
         }
     }
     return teamsWithMin1Junior;
@@ -47,14 +41,8 @@ public static List<Team> getTeamWithMinOneJuniorDeveloper(List<Team> teamList) {
 public static List<Team> getTeamWithMin2SeniorDeveloper(List<Team> teamList) {
     List<Team> teamsWithMin2Seniors = new ArrayList<>();
     for (Team team : teamList) {
-        int seniorsNumber = 0;
         if (team.getEmployeesList() != null) {
-            for (Employee employee : team.getEmployeesList()) {
-                if (employee.getPosition().equals(Position.SENIOR_DEVELOPER)) {
-                    seniorsNumber++;
-                }
-            }
-            if (seniorsNumber >= 2) {
+            if (team.hasNSeniorDevelopers(2)){
                 teamsWithMin2Seniors.add(team);
             }
         }

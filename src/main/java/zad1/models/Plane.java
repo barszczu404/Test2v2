@@ -9,9 +9,7 @@ public class Plane {
     private String producer;
     private int numberOfSeats;
     private double capacityInKg;
-//
-//    private double passengersWeight = 0;
-////    private double luggageWeight = 0;
+
     private double loadElementsWeight;
     private int passengerCnt = 0;
     private List<LoadElement> loadElements = new ArrayList<>();
@@ -27,65 +25,20 @@ public class Plane {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getProducer() {
-        return producer;
-    }
-
-    public void setProducer(String producer) {
-        this.producer = producer;
-    }
-
     public int getNumberOfSeats() {
         return numberOfSeats;
-    }
-
-    public void setNumberOfSeats(int numberOfSeats) {
-        this.numberOfSeats = numberOfSeats;
     }
 
     public double getCapacityInKg() {
         return capacityInKg;
     }
 
-    public void setCapacityInKg(double capacityInKg) {
-        this.capacityInKg = capacityInKg;
-    }
-
-//    public double getPassengersWeight() {
-//        return passengersWeight;
-//    }
-//
-//    public void setPassengersWeight(double passengersWeight) {
-//        this.passengersWeight = passengersWeight;
-//    }
-//
-//    public double getLuggageWeight() {
-//        return luggageWeight;
-//    }
-//
-//    public void setLuggageWeight(double luggageWeight) {
-//        this.luggageWeight = luggageWeight;
-//    }
-
-
     public double getLoadElementsWeight() {
         return loadElementsWeight;
     }
 
-    public void setLoadElementsWeight(double loadElementsWeight) {
-        this.loadElementsWeight = loadElementsWeight;
-    }
-
     public int getPassengerCnt() {
         return passengerCnt;
-    }
-
-    public void setPassengerCnt(int passengerCnt) {
-        this.passengerCnt = passengerCnt;
     }
 
     public List<LoadElement> getLoadElements() {
@@ -101,5 +54,19 @@ public class Plane {
                 ", capacityInKg=" + capacityInKg +
                 ", loadElements=" + loadElements +
                 '}';
+    }
+
+    public void addToPlane(LoadElement loadElement) {
+        try {
+            loadElement.checkIfCanBeLoaded(this);
+            loadElements.add(loadElement);
+            loadElementsWeight += loadElement.getWeightInKg();
+            if (loadElement instanceof Passenger) {
+                passengerCnt++;
+            }
+            System.out.println("Dodano na pokład: " + loadElement);
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

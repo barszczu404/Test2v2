@@ -1,12 +1,8 @@
 package zad1.app;
 
-import zad1.models.LoadElement;
 import zad1.models.Luggage;
 import zad1.models.Passenger;
 import zad1.models.Plane;
-import zad1.services.PlaneService;
-
-import java.util.List;
 
 public class FlightRunner {
 
@@ -27,19 +23,18 @@ public class FlightRunner {
         Luggage luggage3 = new Luggage("Rimowa", 35);
         Luggage luggage4 = new Luggage("Wittchen", 20);
 
-        PlaneService ps = new PlaneService();
 
-        ps.addToPlane(johny, lightAircraft);
-        ps.addToPlane(ala, lightAircraft);
-        ps.addToPlane(marek, lightAircraft);
-        ps.addToPlane(jola, lightAircraft);
-        ps.addToPlane(stewardess, lightAircraft);
-        ps.addToPlane(luggage1,lightAircraft);
-        ps.addToPlane(luggage2,lightAircraft);
-        ps.addToPlane(luggage3,lightAircraft);
+        lightAircraft.addToPlane(johny);
+        lightAircraft.addToPlane(ala);
+        lightAircraft.addToPlane(marek);
+        lightAircraft.addToPlane(jola);
+        lightAircraft.addToPlane(stewardess);
+        lightAircraft.addToPlane(luggage1);
+        lightAircraft.addToPlane(luggage2);
+        lightAircraft.addToPlane(luggage3);
 
-        ps.addToPlane(luggage4, boeing);
-        ps.addToPlane(stewardess, boeing);
+        boeing.addToPlane(luggage4);
+        boeing.addToPlane(stewardess);
 
 
     }

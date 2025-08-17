@@ -27,7 +27,7 @@ public class Employee {
         return id;
     }
 
-    public void setId(int id) {
+    private void setId(int id) {
         this.id = id;
     }
 
@@ -35,32 +35,16 @@ public class Employee {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getSurname() {
         return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
     }
 
     public Position getPosition() {
         return position;
     }
 
-    public void setPosition(Position position) {
-        this.position = position;
-    }
-
     public double getSalary() {
         return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
     }
 
     @Override
@@ -85,5 +69,13 @@ public class Employee {
                 ", position=" + position +
                 ", salary=" + salary +
                 '}';
+    }
+
+    public boolean isJunior() {
+        return this.position == Position.JUNIOR_DEVELOPER;
+    }
+
+    public boolean isSenior() {
+        return this.position == Position.SENIOR_DEVELOPER;
     }
 }

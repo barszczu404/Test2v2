@@ -14,20 +14,20 @@ public class CompanyRunner {
 
         Employee adam = new Employee("Adam", "Adamski", Position.DESIGNER, 4600);
         Employee basia = new Employee("Barbara", "Boczek", Position.TESTER, 5000);
-        Employee czarek = new Employee("Cezary", "Cykada", Position.ANALYST, 5100);//team bez juniora
+        Employee czarek = new Employee("Cezary", "Cykada", Position.ANALYST, 5100);
 
         Employee darek = new Employee("Dariusz", "Dubik" ,Position.JUNIOR_DEVELOPER, 6000);
         Employee ela = new Employee("Elżbieta", "Ekonomiczna", Position.SENIOR_DEVELOPER, 1000);
-        Employee frania = new Employee("Franiczka", "Frankowska", Position.DEVELOPER, 8000);//z 1 juniorem
+        Employee frania = new Employee("Franiczka", "Frankowska", Position.DEVELOPER, 8000);
 
-        Employee grzesiek = new Employee("Grzegorz", "Gaduła", Position.JUNIOR_DEVELOPER, 7000);//1 junior
+        Employee grzesiek = new Employee("Grzegorz", "Gaduła", Position.JUNIOR_DEVELOPER, 7000);
         Employee heniu = new Employee("Henryk", "Huragan", Position.SENIOR_DEVELOPER, 12000);
         Employee irek = new Employee("Ireneusz", "Iksiński", Position.SENIOR_DEVELOPER, 15000);
 
         Employee jola = new Employee("Jolanta", "Jajus", Position.MANAGER, 4900);
         Employee karol = new Employee("Karol", "Kowalski", Position.TESTER, 5200);
-        Employee leszek = new Employee("Leszek", "Linde", Position.ANALYST, 5400);//bez juniora
-        Employee marek = new Employee("Marek", "Moneta", Position.SENIOR_DEVELOPER, 11000);//naj roznych stanowisk
+        Employee leszek = new Employee("Leszek", "Linde", Position.ANALYST, 5400);
+        Employee marek = new Employee("Marek", "Moneta", Position.SENIOR_DEVELOPER, 11000);
 
         Team frontendTeam = new Team("Front", adam, basia, czarek);
         Team backendTeam = new Team("Back", darek, ela, frania);
@@ -36,8 +36,8 @@ public class CompanyRunner {
 
         List<Team> teams = new ArrayList<>(List.of(frontendTeam, backendTeam, anotherBackend, secondFrontend));
 
-        List<Team> teamWithoutJuniorOrDeveloper = CompanyService.getTeamWithoutJuniorOrDeveloper(teams);
-        System.out.println("teamWithoutJuniorOrDeveloper = " + teamWithoutJuniorOrDeveloper);
+        List<Team> teamWithoutJuniorDeveloper = CompanyService.getTeamWithoutJuniorOrDeveloper(teams);
+        System.out.println("teamWithoutJuniorDeveloper = " + teamWithoutJuniorDeveloper);
         List<Team> teamWithMinOneJuniorDeveloper = CompanyService.getTeamWithMinOneJuniorDeveloper(teams);
         System.out.println("teamWithMinOneJuniorDeveloper = " + teamWithMinOneJuniorDeveloper);
         List<Team> teamWithMin2SeniorDeveloper = CompanyService.getTeamWithMin2SeniorDeveloper(teams);

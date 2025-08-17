@@ -1,0 +1,17 @@
+Zadanie 01:
+stwórz klasę Samolot (nazwa, producent, ilośc miejsc siedzących, ładowność), klasę Pasazer (imie, pesel, waga), klasę Bagaż (nazwa firmy, waga)
+- do samolotu mozna dodawac bagaze i pasazerow ale: pasazerow nie moze byc wiecej niz miejsc siedzących
+- suma wag pasazerow i bagaży nie może być większa niż ładownośc samolotu
+
+Zadanie 02:
+- Stworz klase Employee (id, name, surname, position, salary) id powinno byc nadawane automatycznie jako kolejny numer instancji.
+dostepne stanowiska to: JUNIOR_DEVELOPER, DEVELOPER, SENIOR_DEVELOPER, TESTER, DESIGNER, MANAGER, ANALYST
+- Stworz klase Team ktora posiada name oraz liste pracownikow
+napisz metode ktora jako arg pobiera liste Teamow a jako wynik zwraca Teamy w ktorych nie ma zadnego junior java developera
+napisz metode ktora jako arg pobiera liste Teamow a jako wynik zwraca Teamy w ktorych jest chociaz jeden junior
+napisz metode ktora jako arg pobiera liste teamow a jako wynik zwraca Teamy w ktorych jest min 2 seniorow.
+napisz metode ktora jako arg pobiera liste teamow a jako wynik zwraca Team w ktorym jest najwiecej roznych stanowisk.
+
+Zadanie 03:
+Stworz klase przedmiot (typ, nazwa, cena) oraz plecak (firma, wartosc)
+- zapewnij relacje 1 do wiele w taki sposob aby w plecaku moglo byc wiele przedmiotw ale po jednym z kazdego typu
